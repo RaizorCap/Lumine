@@ -26,7 +26,7 @@ const modalContents = {
     baile: {
         title: "Tu Creatividad en Movimiento 💃",
         text: "El baile es tu lenguaje universal, la forma en que tu alma se expresa sin necesidad de palabras. Cada movimiento tuyo es poesía en acción, cada ritmo que sigues revela la artista que llevas dentro. Tu creatividad no se limita a pasos de baile, sino que se extiende a todo lo que tocas, convirtiendo lo ordinario en arte puro.",
-        image: "https://i.pinimg.com/736x/c0/38/a8/c038a82dfae7dd6e2983cf7977390bd6.jpg",
+        image: "https://i.pinimg.com/736x/79/18/46/7918466ec79daa2de9e8ffb90fe2639c.jpg",
         caption: "Expresando tu esencia"
     },
     series: {
