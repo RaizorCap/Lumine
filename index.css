@@ -965,7 +965,7 @@ body {
     }
 
     .message-text {
-        font-size: 1.1rem;
+        font-size: 0.5rem;
         padding: 25px;
         text-align: center;
         max-width: none;
