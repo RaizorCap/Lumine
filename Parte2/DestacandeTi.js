@@ -26,7 +26,7 @@ const modalContents = {
     baile: {
         title: "Tu Creatividad en Movimiento 💃",
         text: "El baile es tu lenguaje universal, la forma en que tu alma se expresa sin necesidad de palabras. Cada movimiento tuyo es poesía en acción, cada ritmo que sigues revela la artista que llevas dentro. Tu creatividad no se limita a pasos de baile, sino que se extiende a todo lo que tocas, convirtiendo lo ordinario en arte puro.",
-        image: "https://i.pinimg.com/1200x/65/4b/61/654b61852404713bd94eca8f61b514e4.jpg",
+        image: "https://i.pinimg.com/736x/c0/38/a8/c038a82dfae7dd6e2983cf7977390bd6.jpg",
         caption: "Expresando tu esencia"
     },
     series: {
@@ -50,7 +50,7 @@ const modalContents = {
     animales: {
         title: "Tu Corazón Tierno 🐶",
         text: "Los animales son una parte fundamental del crecimiento personal. Destacan por enseñarnos un profundo sentido de la responsabilidad y un amor puro."+"<br>"+"En tu caso, se nota ese amor genuino por el cuidado y el bienestar de las mascotas, tanto las tuyas como las ajenas. Es admirable que tengas presente que la vida de los animales es tan valiosa como la de los humanos; un corazón como el tuyo vale por mil."+"<br>"+"No olvidemos que estos seres nos acompañan como fieles compañeros, pero es nuestra responsabilidad educarlos para que vivan en armonía con nosotros.",
-        image: "https://i.pinimg.com/736x/51/0a/b4/510ab44d01d497a8eaedc06f59e6d089.jpg",
+        image: "https://i.pinimg.com/1200x/5c/86/cb/5c86cbbba4993638724cebb1646f38c4.jpg",
         caption: "Amor incondicional"
     }
 };
