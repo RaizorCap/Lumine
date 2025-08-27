@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Regalo Especial Para Ti</title>
+    <link rel="stylesheet" href="ParaTi.css">
+    <link rel="icon" type="image/x-icon" href="../img/Happy.png">
+</head>
+<body>
+    <div class="container">
+        <div class="background-animation">
+            <div class="confetti"></div>
+            <div class="balloons">
+                <span class="balloon balloon-1">🎈</span>
+                <span class="balloon balloon-2">🎈</span>
+                <span class="balloon balloon-3">🎈</span>
+                <span class="balloon balloon-4">🎈</span>
+                <span class="balloon balloon-5">🎈</span>
+            </div>
+        </div>
+
+        <header class="intro-section">
+            <h1 class="intro-title">Hay algo especial esperándote...</h1>
+            <p class="intro-subtitle">Haz clic en el regalo para descubrir tu sorpresa</p>
+        </header>
+
+        <main class="gift-section">
+            <div class="gift-container" id="giftContainer">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-base"></div>
+                    
+                    <div class="gift-lid" id="giftLid">
+                        <div class="ribbon-vertical"></div>
+                        <div class="ribbon-horizontal"></div>
+                        <div class="bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                            <div class="bow-center"></div>
+                        </div>
+                    </div>
+
+                    <div class="gift-content" id="giftContent">
+                        <div class="birthday-message">
+                            <button class="close-button" id="closeButton">X</button>
+                            <h2 class="birthday-title">¡Feliz Cumpleaños<br>Milagros Luminé!</h2>
+                            <div class="celebration-icons">
+                                <span class="icon">🎉</span>
+                                <span class="icon">🎂</span>
+                                <span class="icon">✨</span>
+                            </div>
+                            <div class="age-message">
+                                <p class="age-announcement">🌟 Bienvenida a los 18 años 🌟</p>
+                                <div class="special-message">
+                                    <p>El día de hoy ya eres una adulta y te trataré como tal, Sra. Milagros Luminé Alvarado Cura<br>
+                                        Nuevamente, bienvenida a la vida de responsabilidades legales y financieras. Esto quiere decir que... ¿cuándo vas por tu tarjeta? ¿Para cuándo te abres una cuenta en Yape?</p>
+                                    <div class="study-encouragement">
+                                        <p class="study-text">¡Sigue Estudiando!</p>
+                                        <div class="study-icons">
+                                            <span>📚</span>
+                                            <span>🎓</span>
+                                            <span>💪</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="extraButton" class="extra-button">Extra</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="particles" id="particles"></div>
+            </div>
+        </main>
+        
+        <div class="extra-message-overlay" id="extraMessageOverlay" style="display: none;">
+            <div class="extra-message" id="extraMessage">
+                <button class="close-button" id="closeExtraButton">X</button>
+                <div class="heart-container">
+                    <span class="heart-icon">💖</span>
+                </div>
+                <p class="final-text">Te deseo lo mejor de corazón, ya que hasta el día de hoy me has demostrado que aún hay personas que merecen una amistad sincera. Al igual que tú extiendes tu mano por los demás, yo extenderé mi mano para apoyarte en todo momento.</p>
+                <div class="signature">Con mucho cariño de parte de Roly Rubén.</div>
+            </div>
+        </div>
+    </div>
+    <script src="ParaTi.js"></script>
+</body>
+</html>

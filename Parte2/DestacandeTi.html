@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo que Destaca de Ti</title>
+    <link rel="stylesheet" href="DestacanDeTi.css">
+    <link rel="icon" type="image/x-icon" href="../img/Happy.png">
+</head>
+<body>
+    <div class="navigation">
+        <button id="nextBtn" class="nav-arrow">
+            <span class="arrow-icon">→</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header class="page-header">
+            <h1 class="main-title">Las Cosas Especiales que Te Hacen Única</h1>
+            <p class="subtitle">Algunos aspecto de tu personalidad que descubri hasta hoy</p>
+        </header>
+
+        <main class="cards-grid">
+            <!-- Tarjeta 1: Ingrediente Favorito -->
+            <div class="flip-card" data-card="ingrediente">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🍽️</div>
+                        <h3>Ingrediente Favorito</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Cuál es plato favorito?</h3>
+                        <p>Existe una gran variedad aun así arrisgare por este</p>
+                        <button class="view-btn" onclick="openModal('ingrediente')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Deportes -->
+            <div class="flip-card" data-card="deportes">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">⚽</div>
+                        <h3>Deportes</h3>
+                        <div class="secondary-icon">🏐</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Cuál es tu pasión deportiva?</h3>
+                        <p>Entre fútbol y vóley, ¿cuál conquista tu corazón?</p>
+                        <button class="view-btn" onclick="openModal('deportes')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Lugares Exóticos -->
+            <div class="flip-card" data-card="lugares">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🏛️</div>
+                        <h3>Lugares Excéntricos</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Dónde late tu alma viajera?</h3>
+                        <p>Los rincones más fascinantes de Lima que te enamoran</p>
+                        <button class="view-btn" onclick="openModal('lugares')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Fotografías -->
+            <div class="flip-card" data-card="fotos">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">📸</div>
+                        <h3>Fotografías</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Qué momentos capturas?</h3>
+                        <p>El arte de inmortalizar instantes mágicos</p>
+                        <button class="view-btn" onclick="openModal('fotos')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Creatividad Artística -->
+            <div class="flip-card" data-card="baile">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">💃</div>
+                        <h3>Creatividad Artística</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Cómo expresas tu alma?</h3>
+                        <p>El baile como lenguaje de tu corazón creativo</p>
+                        <button class="view-btn" onclick="openModal('baile')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6: Series -->
+            <div class="flip-card" data-card="series">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🔍</div>
+                        <h3>Series</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Qué misterios te fascinan?</h3>
+                        <p>Las historias que capturan tu imaginación</p>
+                        <button class="view-btn" onclick="openModal('series')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 7: Paisajes -->
+            <div class="flip-card" data-card="paisajes">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🌸</div>
+                        <h3>Paisajes</h3>
+                        <div class="flower-decoration">🌺🌻</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Qué belleza te inspira?</h3>
+                        <p>Los paisajes que tocan tu alma sensible</p>
+                        <button class="view-btn" onclick="openModal('paisajes')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 8: Social -->
+            <div class="flip-card" data-card="social">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">💬</div>
+                        <h3>Social</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Cómo conectas con otros?</h3>
+                        <p>Tu don especial para crear vínculos genuinos</p>
+                        <button class="view-btn" onclick="openModal('social')">Ver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 9: Animales -->
+            <div class="flip-card" data-card="animales">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🌭</div>
+                        <h3>Animales</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>¿Cuál es tu compañero ideal?</h3>
+                        <p>La ternura especial que sientes por los perritos salchicha</p>
+                        <button class="view-btn" onclick="openModal('animales')">Ver</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modales para cada tarjeta -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <div id="modalBody" class="modal-body">
+                <!-- El contenido se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <Script src="DestacandeTi.js"></Script>
+    
+</body>
+</html>
