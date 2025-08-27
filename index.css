@@ -843,7 +843,7 @@ body {
     }
 
     .message-text {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         line-height: 1.6;
         padding: 20px;
         text-align: center;
@@ -863,7 +863,7 @@ body {
     }
 
     .start-button {
-        padding: 16px 35px;
+        padding: 16px 25px;
         font-size: 1.2rem;
         margin-top: 25px;
         border: 3px solid #000000;
@@ -965,15 +965,15 @@ body {
     }
 
     .message-text {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         padding: 25px;
         text-align: center;
         max-width: none;
     }
     
     .start-button {
-        padding: 18px 40px;
-        font-size: 1.3rem;
+        padding: 18px 30px;
+        font-size: 1.1rem;
     }
 }
 
