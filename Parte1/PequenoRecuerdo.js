@@ -25,7 +25,7 @@ document.getElementById('imageModal').addEventListener('click', function (e) {
 
 // Navegación a la siguiente página
 document.getElementById('nextBtn').addEventListener('click', function () {
-    window.location.href = '../Parte2/DestacanDeTi.html';
+    window.location.href = '../Parte2/DestacandeTi.html';
 });
 
 // Efecto de partículas de corazones

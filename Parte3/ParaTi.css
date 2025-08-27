@@ -10,11 +10,14 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    /* Optimización móvil: Evitar repaint en scroll */
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height para móviles */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,6 +45,9 @@ body {
     position: absolute;
     font-size: 3rem;
     animation: floatBalloon 6s ease-in-out infinite;
+    /* Optimización: Hardware acceleration */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .balloon-1 {
@@ -75,14 +81,11 @@ body {
 }
 
 @keyframes floatBalloon {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(-2deg);
+    0%, 100% {
+        transform: translateY(0px) rotate(-2deg) translateZ(0);
     }
-
     50% {
-        transform: translateY(-20px) rotate(2deg);
+        transform: translateY(-20px) rotate(2deg) translateZ(0);
     }
 }
 
@@ -100,13 +103,13 @@ body {
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.6);
     margin-bottom: 20px;
     animation: titleGlow 3s ease-in-out infinite alternate;
+    will-change: text-shadow;
 }
 
 @keyframes titleGlow {
     from {
         text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.6);
     }
-
     to {
         text-shadow: 3px 3px 25px rgba(0, 0, 0, 0.8), 0 0 50px rgba(168, 85, 247, 1);
     }
@@ -121,12 +124,9 @@ body {
 }
 
 @keyframes pulse {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 1;
     }
-
     50% {
         opacity: 0.7;
     }
@@ -142,9 +142,13 @@ body {
     perspective: 1000px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    /* Optimización táctil */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
-.gift-container:hover {
+.gift-container:hover,
+.gift-container:active {
     transform: scale(1.05);
 }
 
@@ -154,6 +158,7 @@ body {
     height: 300px;
     margin: 0 auto;
     transition: all 1s ease;
+    will-change: transform;
 }
 
 .gift-base {
@@ -186,10 +191,12 @@ body {
         inset 0 -5px 15px rgba(0, 0, 0, 0.3);
     border: 3px solid rgba(168, 85, 247, 0.8);
     z-index: 5;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .gift-lid.open {
-    transform: rotateX(-120deg) translateY(-50px);
+    transform: rotateX(-120deg) translateY(-50px) translateZ(0);
 }
 
 .ribbon-vertical {
@@ -275,6 +282,7 @@ body {
     transition: all 2s ease;
     pointer-events: none;
     z-index: 15;
+    will-change: transform, opacity;
 }
 
 .gift-content.show {
@@ -285,15 +293,12 @@ body {
 
 @keyframes contentRise {
     0% {
-        transform: translate(-50%, 20%);
+        transform: translate(-50%, 20%) scale(0.8) translateZ(0);
         opacity: 0;
-        scale: 0.8;
     }
-
     100% {
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1) translateZ(0);
         opacity: 1;
-        scale: 1;
     }
 }
 
@@ -311,7 +316,6 @@ body {
     width: 90vw;
 }
 
-/* Estilos para el botón de cierre */
 .close-button {
     position: absolute;
     top: 15px;
@@ -323,9 +327,14 @@ body {
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.3s ease;
+    /* Optimización móvil */
+    padding: 10px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
-.close-button:hover {
+.close-button:hover,
+.close-button:active {
     opacity: 1;
 }
 
@@ -339,17 +348,15 @@ body {
     margin-bottom: 25px;
     text-shadow: 2px 2px 10px rgba(168, 85, 247, 0.5);
     animation: titleBounce 2s ease infinite;
+    will-change: transform;
 }
 
 @keyframes titleBounce {
-
-    0%,
-    100% {
-        transform: scale(1);
+    0%, 100% {
+        transform: scale(1) translateZ(0);
     }
-
     50% {
-        transform: scale(1.05);
+        transform: scale(1.05) translateZ(0);
     }
 }
 
@@ -363,6 +370,8 @@ body {
 .celebration-icons .icon {
     font-size: 3rem;
     animation: iconSpin 3s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .celebration-icons .icon:nth-child(1) {
@@ -378,18 +387,14 @@ body {
 }
 
 @keyframes iconSpin {
-
-    0%,
-    100% {
-        transform: rotate(0deg) scale(1);
+    0%, 100% {
+        transform: rotate(0deg) scale(1) translateZ(0);
     }
-
     25% {
-        transform: rotate(15deg) scale(1.2);
+        transform: rotate(15deg) scale(1.2) translateZ(0);
     }
-
     75% {
-        transform: rotate(-15deg) scale(1.2);
+        transform: rotate(-15deg) scale(1.2) translateZ(0);
     }
 }
 
@@ -399,13 +404,13 @@ body {
     color: #e879f9;
     margin-bottom: 25px;
     animation: glow 3s ease-in-out infinite alternate;
+    will-change: text-shadow;
 }
 
 @keyframes glow {
     from {
         text-shadow: 0 0 5px rgba(232, 121, 249, 0.7);
     }
-
     to {
         text-shadow: 0 0 15px rgba(232, 121, 249, 1);
     }
@@ -450,6 +455,8 @@ body {
 .study-icons span {
     font-size: 2rem;
     animation: studyBounce 2s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .study-icons span:nth-child(1) {
@@ -465,19 +472,14 @@ body {
 }
 
 @keyframes studyBounce {
-
-    0%,
-    100% {
-        transform: translateY(0px);
+    0%, 100% {
+        transform: translateY(0px) translateZ(0);
     }
-
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) translateZ(0);
     }
 }
 
-/* ESTILOS AGREGADOS Y MODIFICADOS */
-/* Botón para mostrar el mensaje extra */
 .extra-button {
     margin-top: 20px;
     padding: 12px 24px;
@@ -490,29 +492,38 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Optimización móvil */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px; /* Tamaño mínimo táctil */
 }
 
-.extra-button:hover {
+.extra-button:hover,
+.extra-button:active {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(168, 85, 247, 0.7);
 }
 
-/* Contenedor flotante para el mensaje "Extra" */
 .extra-message-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    height: 100dvh; /* Dynamic viewport height */
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 50;
     transition: opacity 0.5s ease;
+    /* Optimización scroll móvil */
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Cuadro de mensaje "Extra" */
 .extra-message {
     position: relative;
     text-align: center;
@@ -527,18 +538,21 @@ body {
     max-width: 600px;
     width: 90vw;
     animation: finalMessageSlide 1s ease forwards;
+    will-change: transform, opacity;
+    /* Centrado mejorado para móviles */
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
 }
-
 
 @keyframes finalMessageSlide {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(50px) translateZ(0);
     }
-
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
     }
 }
 
@@ -550,17 +564,16 @@ body {
     font-size: 3rem;
     color: #e879f9;
     animation: heartBeat 2s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes heartBeat {
-
-    0%,
-    100% {
-        transform: scale(1);
+    0%, 100% {
+        transform: scale(1) translateZ(0);
     }
-
     50% {
-        transform: scale(1.2);
+        transform: scale(1.2) translateZ(0);
     }
 }
 
@@ -588,9 +601,205 @@ body {
     z-index: 20;
 }
 
-@media (max-width: 768px) {
+/* OPTIMIZACIONES ESPECÍFICAS PARA MÓVILES */
+
+/* Media queries optimizadas y más granulares */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height */
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .intro-section {
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
     .intro-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+
+    .intro-subtitle {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    .gift-box {
+        width: 200px;
+        height: 200px;
+    }
+
+    .gift-base {
+        width: 200px;
+        height: 130px;
+    }
+
+    .gift-lid {
+        width: 220px;
+        height: 80px;
+        left: -10px;
+    }
+
+    .ribbon-horizontal {
+        width: 240px;
+        height: 30px;
+        left: -20px;
+        top: 30px;
+    }
+
+    .ribbon-vertical {
+        width: 30px;
+        height: 110px;
+        top: -5px;
+    }
+
+    .bow-left,
+    .bow-right {
+        width: 30px;
+        height: 24px;
+    }
+
+    .bow-center {
+        width: 16px;
+        height: 20px;
+    }
+
+    .birthday-message {
+        padding: 20px 15px;
+        margin: 0 auto;
+        border-radius: 20px;
+        max-width: 350px;
+        width: calc(100vw - 30px);
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .birthday-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .celebration-icons {
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .celebration-icons .icon {
+        font-size: 2.2rem;
+    }
+
+    .age-announcement {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .special-message {
+        padding: 20px 15px;
+        margin: 15px 0;
+        border-radius: 15px;
+    }
+
+    .special-message p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .study-text {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .study-icons span {
+        font-size: 1.8rem;
+    }
+
+    .study-encouragement {
+        padding: 15px;
+    }
+
+    .extra-button {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        margin-top: 15px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .extra-message {
+        padding: 25px 20px;
+        width: calc(100vw - 30px);
+        margin: 15px;
+        border-radius: 20px;
+    }
+
+    .heart-icon {
         font-size: 2.5rem;
+    }
+
+    .final-text {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .signature {
+        font-size: 1rem;
+    }
+
+    .close-button {
+        font-size: 1.3rem;
+        padding: 8px;
+        top: 12px;
+        right: 12px;
+    }
+
+    /* Reducir animaciones para mejorar rendimiento */
+    .balloon {
+        font-size: 2rem;
+    }
+
+    .gift-container {
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .extra-message-overlay {
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height */
+    }
+
+    .extra-message {
+        padding: 20px 15px;
+        width: calc(100vw - 30px);
+        max-width: 350px;
+        margin: 0 auto;
+        border-radius: 20px;
+        max-height: calc(100vh - 30px);
+        max-height: calc(100dvh - 30px);
+        overflow-y: auto;
+        position: relative;
+    }
+}
+
+/* Tablets en orientación vertical */
+@media (min-width: 481px) and (max-width: 768px) {
+    .intro-title {
+        font-size: 2.8rem;
     }
 
     .gift-box {
@@ -600,7 +809,7 @@ body {
 
     .gift-base {
         width: 250px;
-        height: 170px;
+        height: 160px;
     }
 
     .gift-lid {
@@ -615,18 +824,111 @@ body {
     }
 
     .birthday-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 
     .birthday-message {
-        padding: 30px 20px;
+        padding: 35px 25px;
+        width: 85vw;
     }
 
     .celebration-icons .icon {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .container {
-        padding: 20px 15px;
+        padding: 30px 15px;
+    }
+}
+
+/* Optimizaciones adicionales para rendimiento móvil */
+@media (max-width: 768px) {
+    /* Reducir complejidad de sombras en móviles */
+    .gift-base,
+    .gift-lid,
+    .birthday-message {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Simplificar degradados para mejor rendimiento */
+    .extra-button {
+        background: #a855f7;
+    }
+
+    /* Optimizar animaciones para 60fps */
+    @keyframes floatBalloon {
+        0%, 100% {
+            transform: translate3d(0, 0, 0) rotate(-2deg);
+        }
+        50% {
+            transform: translate3d(0, -20px, 0) rotate(2deg);
+        }
+    }
+
+    /* Pausar animaciones cuando no están visibles */
+    .balloon,
+    .celebration-icons .icon,
+    .study-icons span {
+        animation-play-state: paused;
+    }
+
+    .container:hover .balloon,
+    .gift-content.show ~ * .celebration-icons .icon,
+    .gift-content.show ~ * .study-icons span {
+        animation-play-state: running;
+    }
+}
+
+/* Optimización para dispositivos con batería baja */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Modo oscuro específico para móviles */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    body {
+        background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    }
+    
+    .birthday-message,
+    .extra-message {
+        background: rgba(0, 0, 0, 0.9);
+        border-color: rgba(168, 85, 247, 0.8);
+    }
+}
+
+/* Ajustes adicionales para centrado perfecto */
+@media (max-width: 480px) {
+    .gift-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Asegurar que el contenido esté centrado verticalmente */
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* Evitar que el teclado virtual afecte el layout */
+    @media (max-height: 600px) {
+        .container {
+            justify-content: flex-start;
+            padding-top: 20px;
+        }
+        
+        .intro-section {
+            margin-bottom: 20px;
+        }
     }
 }
